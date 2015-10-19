@@ -1,15 +1,142 @@
 {
   "type": "NativeScript",
-  "isNew": true,
+  "views": [
+    {
+      "type": "NativeScript:view",
+      "name": "homeView",
+      "components": [],
+      "title": "Home View",
+      "addToNavigation": true,
+      "icon": "home"
+    },
+    {
+      "type": "NativeScript:view",
+      "name": "aboutView",
+      "components": [
+        {
+          "type": "NativeScript:about",
+          "name": "aboutViewModel",
+          "appName": "My App",
+          "appVersion": "Version 1",
+          "appIcon": "Metro-PNG-Sport-Icons.png",
+          "appDescription": "App description",
+          "contactButton": true,
+          "contactLabel": "Contact us",
+          "contactMail": "support@example.com",
+          "facebookButton": true,
+          "facebookLabel": "Like us on Facebook",
+          "facebookLink": "https://www.facebook.com/Telerik",
+          "twitterButton": true,
+          "twitterLabel": "Follow us on Twitter",
+          "twitterLink": "https://twitter.com/telerik"
+        }
+      ],
+      "title": "About",
+      "addToNavigation": true,
+      "icon": "info"
+    },
+    {
+      "type": "NativeScript:view",
+      "name": "authenticationView",
+      "components": [
+        {
+          "type": "NativeScript:authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "gen10Backend",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "homeView",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Register",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Password",
+          "registerNameLabel": "Name",
+          "registerLabel": "Register",
+          "registerRedirect": "homeView",
+          "gotoSigninLabel": "Sign In"
+        }
+      ],
+      "title": "Authentication",
+      "addToNavigation": true,
+      "icon": "recents"
+    },
+    {
+      "type": "NativeScript:view",
+      "name": "formView",
+      "components": [
+        {
+          "type": "NativeScript:form",
+          "components": [
+            {
+              "type": "NativeScript:field",
+              "name": "password",
+              "title": "Password",
+              "inputType": "password"
+            },
+            {
+              "type": "NativeScript:field",
+              "name": "switch",
+              "title": "Switch",
+              "inputType": "switch"
+            },
+            {
+              "type": "NativeScript:field",
+              "name": "username",
+              "title": "Username",
+              "inputType": "text"
+            },
+            {
+              "type": "NativeScript:field",
+              "name": "search",
+              "title": "Search",
+              "inputType": "search",
+              "placeholder": "Search"
+            }
+          ],
+          "name": "formViewModel",
+          "submitButton": "Confirm",
+          "cancelButton": "Cancel"
+        }
+      ],
+      "title": "Form",
+      "addToNavigation": true,
+      "icon": "bookmarks"
+    },
+    {
+      "type": "NativeScript:view",
+      "name": "dataListView",
+      "components": [
+        {
+          "type": "NativeScript:list",
+          "name": "dataListViewModel",
+          "dataProvider": "gen10Backend",
+          "collection": "Activities",
+          "headerField": "Text",
+          "masterDetails": true,
+          "detailDescriptionField": "Location",
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ],
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
+    }
+  ],
   "dataProviders": [
     {
-      "type": "dataProvider",
-      "title": "DefaultProvider",
-      "name": "defaultProvider",
+      "type": "NativeScript:dataProvider",
+      "name": "gen10Backend",
+      "everliveUrl": "//platform.telerik.com/bs-api/v1/",
+      "title": "Gen10 / Gen10 Backend",
       "source": "everlive",
-      "offlineStorage": false,
       "everliveKey": "MuVqZsBp0SklJXJQ",
-      "everliveUrl": ""
+      "offlineStorage": false
     }
-  ]
+  ],
+  "name": "nativeScriptApp",
+  "navigation": "listmenu",
+  "transition": "none",
+  "skin": "native"
 }
